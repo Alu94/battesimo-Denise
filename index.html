@@ -5,114 +5,124 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Battesimo Denise Lila</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  font-family: 'Playfair Display', serif;
-  background: #f6efe9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+body{
+  margin:0;
+  font-family:'Playfair Display',serif;
+  background:
+    linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)),
+    url("https://images.unsplash.com/photo-1526045478516-99145907023c");
+  background-size:cover;
+  background-position:center;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-.container {
-  position: relative;
-  width: 90%;
-  max-width: 420px;
+.wrapper{
+  width:95%;
+  max-width:420px;
+  position:relative;
 }
 
-.envelope {
-  position: relative;
-  background: #f3eee8;
-  border-radius: 10px;
-  padding: 20px;
-  cursor: pointer;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+/* BUSTA */
+.envelope{
+  background:#f4efe9;
+  border-radius:12px;
+  padding:40px 20px 60px;
+  text-align:center;
+  box-shadow:0 20px 50px rgba(0,0,0,0.25);
+  cursor:pointer;
 }
 
-.seal {
-  width: 90px;
-  height: 90px;
-  background: #e6a7b6;
-  border-radius: 50%;
-  margin: 30px auto 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 42px;
-  color: #fff;
-  box-shadow: inset 0 0 10px rgba(255,255,255,0.5);
+/* SIGILLO */
+.seal{
+  width:95px;
+  height:95px;
+  background:#e3a6b4;
+  border-radius:50%;
+  margin:25px auto 0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:42px;
+  color:white;
+  box-shadow:
+    inset 0 0 10px rgba(255,255,255,0.6),
+    0 10px 20px rgba(0,0,0,0.25);
 }
 
-.text-press {
-  text-align: center;
-  margin-top: 15px;
-  color: #9c6b77;
-  font-style: italic;
+.press{
+  margin-top:12px;
+  font-style:italic;
+  color:#9b6b77;
 }
 
-.card {
-  display: none;
-  background: #fffaf6;
-  padding: 35px 25px;
-  border-radius: 15px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-  text-align: center;
+/* INVITO */
+.card{
+  display:none;
+  background:
+    linear-gradient(rgba(255,255,255,0.88),rgba(255,255,255,0.88)),
+    url("https://images.unsplash.com/photo-1526045478516-99145907023c");
+  background-size:cover;
+  border-radius:18px;
+  padding:40px 25px;
+  text-align:center;
+  box-shadow:0 25px 60px rgba(0,0,0,0.35);
 }
 
-.card h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 48px;
-  color: #c98a9a;
-  margin: 10px 0;
+.card h2{
+  font-size:20px;
+  color:#9b6b77;
 }
 
-.card h2 {
-  font-size: 20px;
-  color: #9c6b77;
-  margin-bottom: 25px;
+.card h1{
+  font-family:'Great Vibes',cursive;
+  font-size:50px;
+  color:#c98798;
+  margin:10px 0 20px;
 }
 
-.card p {
-  font-size: 16px;
-  color: #6f5b5f;
-  line-height: 1.6;
-  margin: 10px 0;
+.card p{
+  color:#6b555b;
+  font-size:16px;
+  line-height:1.7;
+  margin:12px 0;
 }
 
-.highlight {
-  font-weight: bold;
-  color: #8b5e6a;
+.strong{
+  font-weight:500;
+  color:#8a5a66;
 }
 
-.fade {
-  animation: fadeIn 1.2s ease forwards;
+.fade{
+  animation:open 1.2s ease forwards;
 }
 
-@keyframes fadeIn {
-  from {opacity:0; transform: scale(0.95);}
-  to {opacity:1; transform: scale(1);}
+@keyframes open{
+  from{opacity:0; transform:scale(0.95);}
+  to{opacity:1; transform:scale(1);}
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="wrapper">
 
-  <div class="envelope" id="envelope">
+  <div class="envelope" id="env">
     <div class="seal">✝</div>
-    <div class="text-press">Premi il sigillo</div>
+    <div class="press">Premi il sigillo</div>
   </div>
 
   <div class="card" id="card">
     <h2>Siete invitati al Battesimo della piccola</h2>
     <h1>Denise Lila</h1>
 
-    <p class="highlight">12.04.2026</p>
+    <p class="strong">12.04.2026</p>
 
     <p>
       presso la <strong>Chiesa Maria Assunta di Villa Lagarina</strong><br>
@@ -134,12 +144,12 @@ body {
 </div>
 
 <script>
-document.getElementById("envelope").addEventListener("click", function() {
-  this.style.display = "none";
-  const card = document.getElementById("card");
-  card.style.display = "block";
-  card.classList.add("fade");
-});
+document.getElementById("env").onclick=function(){
+  this.style.display="none";
+  let c=document.getElementById("card");
+  c.style.display="block";
+  c.classList.add("fade");
+}
 </script>
 
 </body>
