@@ -69,6 +69,16 @@ body {
   font-style: italic;
   color: #9b6b77;
   text-align: center;
+  
+  /* Animazione */
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+/* Animazione pulsante */
+@keyframes pulse {
+  0% { transform: translateX(-50%) translateY(0); opacity: 1; }
+  50% { transform: translateX(-50%) translateY(-8px); opacity: 0.8; }
+  100% { transform: translateX(-50%) translateY(0); opacity: 1; }
 }
 
 /* INVITO */
@@ -169,6 +179,7 @@ document.getElementById("env").onclick = function() {
 
 </body>
 </html>
+
 
 
 
