@@ -29,12 +29,9 @@ body{
 }
 
 /* BUSTA */
-.envelope {
-  border-radius: 12px;
-  padding: 40px 20px 60px;
-  text-align: center;
-  box-shadow: none;
-  cursor: pointer;
+.envelope{
+  position:relative;
+}
 
   /* Sfondo immagine + gradiente */
   background: 
@@ -49,9 +46,12 @@ body{
   height:95px;
   border-radius:50%;
 
-  margin:100px auto 0;
+  position:absolute;
+  left:50%;
+  bottom:30px;
+  transform:translateX(-50%);
 
-  background: url('images/sigillo.png') center/cover no-repeat;
+  background:url('images/sigillo.png') center/cover no-repeat;
 
   box-shadow: none;
  
@@ -156,6 +156,7 @@ document.getElementById("env").onclick=function(){
 
 </body>
 </html>
+
 
 
 
