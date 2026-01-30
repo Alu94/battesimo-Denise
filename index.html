@@ -1,29 +1,55 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Battesimo Denise Lila</title>
+<div class="wrapper">
+  <div class="envelope" id="env">
+    <div class="seal"></div>
+    <div class="press">Premi il sigillo</div>
+  </div>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+  <div class="card" id="card">
+    <h2>Siete invitati al Battesimo della piccola</h2>
+    <h1>Denise Lila</h1>
+    <p class="strong">12.04.2026</p>
+    <p>
+      presso la <strong>Chiesa Maria Assunta di Villa Lagarina</strong><br>
+      ore <strong>11:30</strong>
+    </p>
+    <p>
+      La cerimonia proseguirà<br>
+      con un rinfresco presso<br>
+      <strong>il Parco Guerrieri Gonzaga<br>di Villa Lagarina</strong>
+    </p>
+    <p style="margin-top:25px;font-style:italic;">
+      È gradita la conferma di partecipazione<br>
+      entro il <strong>01.03.2026</strong>
+    </p>
+  </div>
+</div>
 
-<style>
+<script>
+document.getElementById("env").onclick = function() {
+  this.style.display = "none";
+  let c = document.getElementById("card");
+  c.style.display = "block";
+  c.classList.add("fade");
+}
+</script>
+
 /* BODY */
 body {
   margin: 0;
   font-family: 'Playfair Display', serif;
   background: #f6efe9;
-  min-height: 100vh; /* invece di height */
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-y: auto; /* permette scroll solo verticale */
+  overflow-y: auto; /* permette pull-to-refresh sui cellulari */
+  padding: 10px;    /* spazio intorno alla busta */
 }
 
 /* WRAPPER */
 .wrapper {
   width: 100%;
-  max-width: 300px; /* busta proporzionata */
+  max-width: 400px;   /* massima larghezza busta */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,15 +59,17 @@ body {
 /* BUSTA */
 .envelope {
   position: relative;
+  width: 100%;        /* occupa tutta la larghezza del wrapper */
+  height: auto;
+  aspect-ratio: 10/6; /* rapporto reale 10:6 della busta */
   border-radius: 12px;
-  padding: 40px 20px 60px;
-  text-align: center;
-  box-shadow: none;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
   cursor: pointer;
 
   background:
     linear-gradient(rgba(244,239,233,0.6), rgba(244,239,233,0.6)),
-    url('images/busta.png') no-repeat center/cover;
+    url('images/busta.png') no-repeat center/cover; /* sostituisci con la tua immagine */
+  background-size: cover;
 }
 
 /* SIGILLO */
@@ -49,7 +77,11 @@ body {
   width: 95px;
   height: 95px;
   border-radius: 50%;
-  margin: 120px auto 0;
+
+  position: absolute;
+  left: 50%;
+  bottom: 15px; /* distanza dal bordo inferiore della busta */
+  transform: translateX(-50%);
 
   background: url('images/sigillo.png') center/cover no-repeat;
   box-shadow: none;
@@ -108,56 +140,13 @@ body {
   from {opacity: 0; transform: scale(0.95);}
   to {opacity: 1; transform: scale(1);}
 }
-</style>
-</head>
 
-<body>
-
-<div class="wrapper">
-
-  <div class="envelope" id="env">
-    <div class="seal"></div>
-    <div class="press">Premi il sigillo</div>
-  </div>
-
-  <div class="card" id="card">
-    <h2>Siete invitati al Battesimo della piccola</h2>
-    <h1>Denise Lila</h1>
-
-    <p class="strong">12.04.2026</p>
-
-    <p>
-      presso la <strong>Chiesa Maria Assunta di Villa Lagarina</strong><br>
-      ore <strong>11:30</strong>
-    </p>
-
-    <p>
-      La cerimonia proseguirà<br>
-      con un rinfresco presso<br>
-      <strong>il Parco Guerrieri Gonzaga<br>di Villa Lagarina</strong>
-    </p>
-
-    <p style="margin-top:25px;font-style:italic;">
-      È gradita la conferma di partecipazione<br>
-      entro il <strong>01.03.2026</strong>
-    </p>
-  </div>
-
-</div>
-
-<script>
-document.getElementById("env").onclick = function() {
-  this.style.display = "none";
-  let c = document.getElementById("card");
-  c.style.display = "block";
-  c.classList.add("fade");
+/* MEDIA QUERY PER TELEFONI PICCOLI */
+@media (max-width: 360px) {
+  .wrapper {
+    max-width: 90%; /* lascia un po’ di spazio ai lati */
+  }
+  .card h1 {
+    font-size: 42px;
+  }
 }
-</script>
-
-</body>
-</html>
-
-
-
-
-
