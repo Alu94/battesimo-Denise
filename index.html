@@ -43,29 +43,20 @@ body{
 
 }
 
-/* SIGILLO */
 .seal{
   width:95px;
   height:95px;
   border-radius:50%;
   margin:25px auto 0;
 
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  /* IMMAGINE + LEGGERA GRADAZIONE */
-  background:
-    radial-gradient(circle, rgba(255,255,255,0.35), rgba(0,0,0,0.15)),
-    url('images/sigillorosso.png') no-repeat center/cover;
-
-  font-size:42px;
-  color:white;
+  background: url('images/sigillorosso.png') center/cover no-repeat;
 
   box-shadow:
     inset 0 0 10px rgba(255,255,255,0.6),
     0 10px 20px rgba(0,0,0,0.25);
+  
 }
+  
 .press{
   margin-top:12px;
   font-style:italic;
@@ -165,6 +156,7 @@ document.getElementById("env").onclick=function(){
 
 </body>
 </html>
+
 
 
 
