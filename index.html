@@ -13,11 +13,11 @@ body {
   margin: 0;
   font-family: 'Playfair Display', serif;
   background: #f6efe9;
-  height: 100vh;      /* altezza viewport */
-  overflow: hidden;   /* blocca scroll */
+  min-height: 100vh; /* invece di height */
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-y: auto; /* permette scroll solo verticale */
 }
 
 /* WRAPPER */
@@ -153,6 +153,7 @@ document.getElementById("env").onclick = function() {
 
 </body>
 </html>
+
 
 
 
