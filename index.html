@@ -50,20 +50,10 @@ body{
   border-radius:50%;
   margin:25px auto 0;
 
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  /* IMMAGINE + LEGGERA GRADAZIONE */
-  background:
-    radial-gradient(circle, rgba(255,255,255,0.35), rgba(0,0,0,0.15)),
-    url('images/sigillo.png') no-repeat center/cover;
-
-  font-size:42px;
-  color:white;
+  background: url('images/sigillo.png') center/cover no-repeat;
 
   box-shadow:
-    inset 0 0 10px rgba(255,255,255,0.6),
+    inset 0 0 8px rgba(255,255,255,0.25),
     0 10px 20px rgba(0,0,0,0.25);
   
 }
@@ -127,7 +117,7 @@ body{
 <div class="wrapper">
 
   <div class="envelope" id="env">
-    <div class="seal">✝</div>
+    <div class="seal"></div>
     <div class="press">Premi il sigillo</div>
   </div>
 
@@ -167,6 +157,7 @@ document.getElementById("env").onclick=function(){
 
 </body>
 </html>
+
 
 
 
