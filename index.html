@@ -10,8 +10,21 @@
 <style>
 /* BODY */
 body {
-  background: url('images/sfondo.jpg') no-repeat center center;
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+
+  /* Sfondo full screen */
+  background: url('images/sfondo.jpg') no-repeat center center fixed;
   background-size: cover;
+
+  /* Centro verticale e orizzontale della busta */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  overflow: hidden; /* evita scroll */
+
 }
 
 /* WRAPPER */
@@ -172,6 +185,7 @@ document.getElementById("env").onclick = function() {
 
 </body>
 </html>
+
 
 
 
