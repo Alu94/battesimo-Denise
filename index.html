@@ -66,12 +66,15 @@ body {
 .press {
   position: absolute;
   left: 50%;
-  bottom: -55px;
+  bottom: -55px;      /* distanza dal bordo inferiore della busta */
   transform: translateX(-50%);
   font-style: italic;
-  color: #9b6b77;
+  font-weight: bold;     /* grassetto */
+  color: #ffffff;        /* bianco */
+  font-size: 18px;       /* leggermente più grande */
   text-align: center;
-
+  
+  /* Animazione */
   animation: pulse 1.2s ease-in-out infinite;
 }
 
@@ -186,3 +189,4 @@ document.getElementById("seal").onclick = function () {
 
 </body>
 </html>
+
