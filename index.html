@@ -18,12 +18,11 @@ body {
 
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* inizio dalla parte alta, non stretch verticale */
+  align-items: center; /* centro verticale */
   min-height: 100vh;
 
-  /* permette scroll per pull-to-refresh */
-  overflow-y: auto; 
-  padding: 20px; /* spazio ai lati su tutti i dispositivi */
+  overflow-y: auto; /* permette pull-to-refresh */
+  padding: 20px;    /* spazio ai lati su tutti i dispositivi */
   box-sizing: border-box;
 }
 
@@ -34,7 +33,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 40px; /* lascia un po' di spazio in alto */
+  /* rimosso margin-top per centrare verticalmente */
 }
 
 /* BUSTA */
@@ -192,3 +191,4 @@ document.getElementById("seal").onclick = function () {
 
 </body>
 </html>
+
