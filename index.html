@@ -12,14 +12,19 @@
 body {
   margin: 0;
   font-family: 'Playfair Display', serif;
+
+  /* Sfondo full screen */
   background: url('images/sfondo.jpg') no-repeat center center fixed;
   background-size: cover;
 
+  /* Centro verticale e orizzontale della busta */
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  overflow: hidden;
+
+  overflow: hidden; /* evita scroll */
+
 }
 
 /* WRAPPER */
@@ -28,6 +33,7 @@ body {
   max-width: 400px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
@@ -35,6 +41,7 @@ body {
 .envelope {
   position: relative;
   width: 100%;
+  height: auto;
   aspect-ratio: 10/6;
   border-radius: 12px;
   box-shadow: 0 20px 50px rgba(0,0,0,0.25);
@@ -43,14 +50,7 @@ body {
   background:
     linear-gradient(rgba(244,239,233,0.6), rgba(244,239,233,0.6)),
     url('images/busta.png') no-repeat center/cover;
-
-  transition: transform 0.8s ease, opacity 0.8s ease;
-}
-
-/* STATO APERTURA BUSTA */
-.envelope.open {
-  transform: scale(1.05) translateY(-40px);
-  opacity: 0;
+  background-size: cover;
 }
 
 /* SIGILLO */
@@ -60,39 +60,27 @@ body {
   border-radius: 50%;
   position: absolute;
   left: 50%;
-  bottom: 10px;
+  bottom: 10px; /* distanza dal bordo inferiore della busta */
   transform: translateX(-50%);
   background: url('images/sigillo.png') center/cover no-repeat;
-}
-
-/* ANIMAZIONE SIGILLO */
-.seal.break {
-  animation: sealBreak 0.6s ease forwards;
-}
-
-@keyframes sealBreak {
-  0% {
-    transform: translateX(-50%) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-50%) translateY(25px) scale(0.7);
-    opacity: 0;
-  }
+  box-shadow: none;
 }
 
 /* TESTO SOTTO SIGILLO */
 .press {
   position: absolute;
   left: 50%;
-  bottom: -55px;
+  bottom: -55px;      /* distanza dal bordo inferiore della busta */
   transform: translateX(-50%);
   font-style: italic;
   color: #9b6b77;
+  text-align: center;
+  
+  /* Animazione */
   animation: pulse 1.2s ease-in-out infinite;
 }
 
-/* ANIMAZIONE TESTO */
+/* Animazione pulsante */
 @keyframes pulse {
   0% { transform: translateX(-50%) translateY(0); opacity: 1; }
   50% { transform: translateX(-50%) translateY(-8px); opacity: 0.8; }
@@ -110,16 +98,6 @@ body {
   padding: 40px 25px;
   text-align: center;
   box-shadow: 0 25px 60px rgba(0,0,0,0.35);
-}
-
-/* ANIMAZIONE INVITO */
-.fade {
-  animation: openCard 1.2s ease forwards;
-}
-
-@keyframes openCard {
-  from { opacity: 0; transform: scale(0.95); }
-  to   { opacity: 1; transform: scale(1); }
 }
 
 .card h2 {
@@ -145,6 +123,26 @@ body {
   font-weight: 500;
   color: #8a5a66;
 }
+
+/* ANIMAZIONE INVITO */
+.fade {
+  animation: open 1.2s ease forwards;
+}
+
+@keyframes open {
+  from {opacity: 0; transform: scale(0.95);}
+  to {opacity: 1; transform: scale(1);}
+}
+
+/* MEDIA QUERY */
+@media (max-width: 360px) {
+  .wrapper {
+    max-width: 90%;
+  }
+  .card h1 {
+    font-size: 42px;
+  }
+}
 </style>
 </head>
 
@@ -152,27 +150,23 @@ body {
 
 <div class="wrapper">
   <div class="envelope" id="env">
-    <div class="seal" id="seal"></div>
+    <div class="seal"></div>
     <div class="press">Premi il sigillo</div>
   </div>
 
   <div class="card" id="card">
     <h2>Siete invitati al Battesimo della piccola</h2>
     <h1>Denise Lila</h1>
-
     <p class="strong">12.04.2026</p>
-
     <p>
       presso la <strong>Chiesa Maria Assunta di Villa Lagarina</strong><br>
       ore <strong>11:30</strong>
     </p>
-
     <p>
       La cerimonia proseguirà<br>
       con un rinfresco presso<br>
       <strong>il Parco Guerrieri Gonzaga<br>di Villa Lagarina</strong>
     </p>
-
     <p style="margin-top:25px;font-style:italic;">
       È gradita la conferma di partecipazione<br>
       entro il <strong>01.03.2026</strong>
@@ -181,20 +175,12 @@ body {
 </div>
 
 <script>
-const envelope = document.getElementById("env");
-const seal = document.getElementById("seal");
-const card = document.getElementById("card");
-
-envelope.onclick = () => {
-  seal.classList.add("break");
-  envelope.classList.add("open");
-
-  setTimeout(() => {
-    envelope.style.display = "none";
-    card.style.display = "block";
-    card.classList.add("fade");
-  }, 700);
-};
+document.getElementById("env").onclick = function() {
+  this.style.display = "none";
+  let c = document.getElementById("card");
+  c.style.display = "block";
+  c.classList.add("fade");
+}
 </script>
 
 </body>
