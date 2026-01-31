@@ -91,15 +91,10 @@ body {
 /* INVITO */
 .card {
   display: none;
-  background: linear-gradient(
-    rgba(150,150,150,0.50) 50%, /* nero semi-trasparente in alto */ 
-    rgba(150,150,150,0.50) 50% /* nero quasi pieno in basso */
-  ); /* rimosso background-attachment: fixed; */
-  border-radius: 18px;
-  padding: 40px 25px;
-  text-align: center;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
-  color: #ffffff;
+  background: transparent;   /* rimuove il bianco/sfumatura */
+  box-shadow: none;          /* rimuove l’ombra */
+  padding: 0;                /* elimina margini interni */
+  border-radius: 0;          /* nessuna cornice */
 }
 
 .card h2 {
@@ -185,6 +180,7 @@ document.getElementById("seal").onclick = function () {
 
 </body>
 </html>
+
 
 
 
