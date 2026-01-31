@@ -8,21 +8,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
+/* SFONDO FISSO */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('images/sfondo.jpg') no-repeat center center;
+  background-size: cover;
+  z-index: -1; /* dietro a tutto */
+}
+
 /* BODY */
 body {
   margin: 0;
   font-family: 'Playfair Display', serif;
-
-  background: url('images/sfondo.jpg') no-repeat center center fixed;
-  background-size: cover;
-
   display: flex;
   justify-content: center;
-  align-items: center; /* centro verticale */
+  align-items: center;
   min-height: 100vh;
 
   overflow-y: auto; /* permette pull-to-refresh */
-  padding: 20px;    /* spazio ai lati su tutti i dispositivi */
+  padding: 20px;    /* spazio ai lati */
   box-sizing: border-box;
 }
 
@@ -33,7 +41,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* rimosso margin-top per centrare verticalmente */
 }
 
 /* BUSTA */
@@ -55,12 +62,10 @@ body {
   width: 95px;
   height: 95px;
   border-radius: 50%;
-
   position: absolute;
   left: 50%;
   bottom: 10px;
   transform: translateX(-50%);
-
   background: url('images/sigillo.png') no-repeat center / cover;
   cursor: pointer;
 }
@@ -72,15 +77,14 @@ body {
   bottom: -55px;
   transform: translateX(-50%);
   font-style: italic;
-  font-weight: bold;   /* grassetto */
-  color: #ffffff;      /* bianco */
-  font-size: 15px;     /* più grande */
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 18px;
   text-align: center;
 
   animation: pulse 1.2s ease-in-out infinite;
 }
 
-/* Animazione testo */
 @keyframes pulse {
   0% { transform: translateX(-50%) translateY(0); opacity: 1; }
   50% { transform: translateX(-50%) translateY(-8px); opacity: 0.8; }
@@ -101,54 +105,27 @@ body {
   box-shadow: 0 25px 60px rgba(0,0,0,0.35);
 }
 
-/* TESTI INVITO */
-.card h2 {
-  font-size: 20px;
-  color: #9b6b77;
-}
-
-.card h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 50px;
-  color: #c98798;
-  margin: 10px 0 20px;
-}
-
-.card p {
-  color: #6b555b;
-  font-size: 16px;
-  line-height: 1.7;
-  margin: 12px 0;
-}
-
-.strong {
-  font-weight: 500;
-  color: #8a5a66;
-}
+.card h2 { font-size: 20px; color: #9b6b77; }
+.card h1 { font-family: 'Great Vibes', cursive; font-size: 50px; color: #c98798; margin: 10px 0 20px; }
+.card p { color: #6b555b; font-size: 16px; line-height: 1.7; margin: 12px 0; }
+.strong { font-weight: 500; color: #8a5a66; }
 
 /* ANIMAZIONE INVITO */
-.fade {
-  animation: open 1.2s ease forwards;
-}
-
-@keyframes open {
-  from { opacity: 0; transform: scale(0.95); }
-  to   { opacity: 1; transform: scale(1); }
-}
+.fade { animation: open 1.2s ease forwards; }
+@keyframes open { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
 
 /* MOBILE */
 @media (max-width: 360px) {
-  .wrapper {
-    max-width: 90%;
-  }
-  .card h1 {
-    font-size: 42px;
-  }
+  .wrapper { max-width: 90%; }
+  .card h1 { font-size: 42px; }
 }
 </style>
 </head>
 
 <body>
+
+<!-- SFONDO -->
+<div class="background"></div>
 
 <div class="wrapper">
 
@@ -191,4 +168,3 @@ document.getElementById("seal").onclick = function () {
 
 </body>
 </html>
-
