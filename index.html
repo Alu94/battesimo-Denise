@@ -18,10 +18,13 @@ body {
 
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* inizio dalla parte alta, non stretch verticale */
   min-height: 100vh;
 
-  overflow: hidden;
+  /* permette scroll per pull-to-refresh */
+  overflow-y: auto; 
+  padding: 20px; /* spazio ai lati su tutti i dispositivi */
+  box-sizing: border-box;
 }
 
 /* WRAPPER */
@@ -31,6 +34,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 40px; /* lascia un po' di spazio in alto */
 }
 
 /* BUSTA */
@@ -66,15 +70,14 @@ body {
 .press {
   position: absolute;
   left: 50%;
-  bottom: -55px;      /* distanza dal bordo inferiore della busta */
+  bottom: -55px;
   transform: translateX(-50%);
   font-style: italic;
-  font-weight: bold;     /* grassetto */
-  color: #ffffff;        /* bianco */
-  font-size: 15px;       /* leggermente più grande */
+  font-weight: bold;   /* grassetto */
+  color: #ffffff;      /* bianco */
+  font-size: 15px;     /* più grande */
   text-align: center;
-  
-  /* Animazione */
+
   animation: pulse 1.2s ease-in-out infinite;
 }
 
@@ -189,5 +192,3 @@ document.getElementById("seal").onclick = function () {
 
 </body>
 </html>
-
-
