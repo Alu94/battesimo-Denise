@@ -92,8 +92,8 @@ body {
 .card {
   display: none;
   background: linear-gradient(
-    rgba(0,0,0,0.3),
-    rgba(0,0,0,0.3)
+    rgba(150,150,150,0.50) 50%, /* nero semi-trasparente in alto */ 
+    rgba(150,150,150,0.50) 50% /* nero quasi pieno in basso */
   ); /* rimosso background-attachment: fixed; */
   border-radius: 18px;
   padding: 40px 25px;
@@ -102,10 +102,10 @@ body {
   color: #ffffff;
 }
 
-.card h2 { font-size: 20px; color: #ffffff; }
+.card h2 { font-size: 20px; cursive; color: #ffffff; }
 .card h1 { font-family: 'Great Vibes', cursive; font-size: 50px; color: #ffffff; margin: 10px 0 20px; }
-.card p { color: #ffffff; font-size: 16px; line-height: 1.7; margin: 12px 0; }
-.strong { font-weight: 500; color: #ffffff; }
+.card p { color: #ffffff; font-size: 20px; cursive; line-height: 1.7; margin: 12px 0; }
+.strong { font-weight: 500; cursive; color: #ffffff; }
 
 /* ANIMAZIONE INVITO */
 .fade { animation: open 1.2s ease forwards; }
@@ -165,5 +165,6 @@ document.getElementById("seal").onclick = function () {
 
 </body>
 </html>
+
 
 
